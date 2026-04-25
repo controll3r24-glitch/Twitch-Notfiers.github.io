@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termini di Servizio - Controll3r24 Live Notifier</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: radial-gradient(circle at top right, #2d1b4e, #1a1a2e, #0f0f1a);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #a78bfa;
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+        }
+
+        .btn-invite {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+
+        .btn-invite:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 120px auto 50px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .last-updated {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: #c4b5fd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #a855f7;
+            border-radius: 2px;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #a855f7;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: rgba(168, 85, 247, 0.15);
+            color: #ddd6fe;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-family: monospace;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        a.external-link {
+            color: #a78bfa;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(167, 139, 250, 0.3);
+            transition: all 0.2s;
+        }
+
+        a.external-link:hover {
+            border-bottom-color: #a78bfa;
+            color: #c4b5fd;
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: 95%;
+                padding: 0.8rem 1.2rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+            .container {
+                padding: 1.5rem;
+                margin-top: 100px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tos.html" style="color: #fff; font-weight: 700;">Termini di Servizio</a></li>
+            <li><a href="isp.html">Privacy</a></li>
+        </ul>
+        <a href="https://discord.com/oauth2/authorize?client_id=1497632414837510245" class="btn-invite">Invita il bot</a>
+    </nav>
+
+    <div class="container">
+        <h1>📜 Termini di Servizio</h1>
+        <p class="last-updated">Ultimo aggiornamento: 25 Aprile 2026</p>
+
+        <h2>1. Accettazione dei Termini</h2>
+        <p>Utilizzando il bot Discord <span class="highlight">Controll3r24 Live Notifier</span> (d'ora in poi "il Bot"), accetti integralmente questi Termini di Servizio. Se non sei d'accordo con una qualsiasi parte, ti preghiamo di non utilizzare il Bot.</p>
+
+        <h2>2. Descrizione del Servizio</h2>
+        <p>Il Bot fornisce notifiche automatiche relative agli streaming live del canale Twitch <a href="https://twitch.tv/Controll3r24" target="_blank" class="external-link">Controll3r24</a>. Le funzionalità includono:</p>
+        <ul>
+            <li>Rilevamento automatico della messa in onda su Twitch.</li>
+            <li>Invio di messaggi (embed) nei canali Discord designati.</li>
+            <li>Possibilità di menzionare un ruolo configurabile.</li>
+            <li>Comandi come <span class="highlight">!twitch</span> per ottenere il ruolo di notifica, e pannello di configurazione <span class="highlight">!panel</span> per gli amministratori.</li>
+        </ul>
+
+        <h2>3. Utilizzo delle API di Twitch</h2>
+        <p>Il Bot si interfaccia con le API ufficiali di Twitch per verificare lo stato della diretta. Non raccogliamo né conserviamo dati personali degli utenti di Twitch. L'uso delle API è conforme ai <a href="https://www.twitch.tv/p/it-it/legal/terms-of-service/" target="_blank" class="external-link">Termini di Servizio di Twitch</a>.</p>
+
+        <h2>4. Privacy e Dati</h2>
+        <p>Il Bot non raccoglie, memorizza o condivide dati personali degli utenti. Le uniche informazioni salvate sono:</p>
+        <ul>
+            <li>ID del canale Discord dove inviare le notifiche.</li>
+            <li>ID del ruolo da menzionare.</li>
+            <li>Preferenze di personalizzazione del messaggio (JSON fornito dagli amministratori).</li>
+        </ul>
+        <p>Nessuno di questi dati è riconducibile a singoli individui. Non vengono registrati log dei messaggi né cronologia degli utenti.</p>
+
+        <h2>5. Responsabilità dell'Utente</h2>
+        <p>Gli amministratori del server Discord che utilizzano il Bot sono responsabili di:</p>
+        <ul>
+            <li>Configurare il Bot in conformità con le regole del proprio server e con i Termini di Servizio di Discord.</li>
+            <li>Non utilizzare il Bot per inviare spam, contenuti offensivi o illegali tramite il messaggio personalizzato.</li>
+            <li>Assicurarsi che il ruolo menzionato non violi la privacy degli utenti o causi disturbo.</li>
+        </ul>
+
+        <h2>6. Limitazione di Responsabilità</h2>
+        <p>Il Bot viene fornito "così com'è", senza garanzie di alcun tipo. Non ci assumiamo responsabilità per:</p>
+        <ul>
+            <li>Eventuali interruzioni del servizio dovute a problemi tecnici o cambiamenti delle API di Twitch/Discord.</li>
+            <li>Danni diretti o indiretti derivanti dall'uso o dall'impossibilità di usare il Bot.</li>
+            <li>Contenuti trasmessi attraverso il messaggio live personalizzato dagli amministratori.</li>
+        </ul>
+
+        <h2>7. Modifiche ai Termini</h2>
+        <p>Ci riserviamo il diritto di aggiornare questi Termini di Servizio in qualsiasi momento. Le modifiche saranno pubblicate in questa pagina. L'uso continuato del Bot dopo le modifiche costituisce accettazione dei nuovi termini.</p>
+
+        <h2>8. Contatti</h2>
+        <p>Per domande, segnalazioni o chiarimenti, puoi contattarci attraverso il server Discord del creatore o tramite il canale Twitch <a href="https://twitch.tv/Controll3r24" target="_blank" class="external-link">Controll3r24</a>.</p>
+
+        <footer>
+            <p>© 2026 Controll3r24 Live Notifier Bot. Tutti i diritti riservati.</p>
+            <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.6;">Non affiliato ufficialmente con Discord Inc. o Twitch Interactive.</p>
+        </footer>
+    </div>
+</body>
+</html>
