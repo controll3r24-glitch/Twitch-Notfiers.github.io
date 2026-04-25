@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Controll3r24 Live Notifier</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: radial-gradient(circle at top right, #2d1b4e, #1a1a2e, #0f0f1a);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #a78bfa;
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+        }
+
+        .btn-invite {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+
+        .btn-invite:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 150px 20px 50px;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .bot-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #a855f7;
+            padding: 5px;
+            background: rgba(168, 85, 247, 0.1);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #fff, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .feature-card h3 {
+            color: #a78bfa;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .features { grid-template-columns: 1fr; }
+            .hero-container { padding: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html" style="color: #fff; font-weight: 700;">Home</a></li>
+            <li><a href="tos.html">Termini di Servizio</a></li>
+            <li><a href="isp.html">Privacy</a></li>
+        </ul>
+        <a href="https://discord.com/oauth2/authorize?client_id=1497632414837510245" class="btn-invite">Invita il bot</a>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-container">
+            <img src="https://cdn.discordapp.com/app-icons/1497632414837510245/f54dd18ca491b65cf0b0a8fc7a33488b.png?size=32" alt="Controll3r24 Logo" class="bot-logo">
+            
+            <div>
+                <h1>Controll3r24 Notifier</h1>
+                <p class="hero-desc">Porta le dirette di Controll3r24 direttamente nel tuo server Discord. Semplice, veloce e completamente personalizzabile.</p>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <h3>⚡ Real-time</h3>
+                    <p>Notifiche istantanee non appena lo streaming va online.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 Custom Embed</h3>
+                    <p>Personalizza il messaggio con JSON per renderlo unico.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔔 Auto-Role</h3>
+                    <p>Gestione ruoli automatizzata tramite comandi semplici.</p>
+                </div>
+            </div>
+
+            <a href="https://discord.com/oauth2/authorize?client_id=1497632414837510245" class="btn-invite" style="padding: 1rem 3rem; font-size: 1.1rem;">Aggiungi a Discord</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Controll3r24 Live Notifier Bot. Non affiliato a Discord o Twitch.</p>
+    </footer>
+
+</body>
+</html>
